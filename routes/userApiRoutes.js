@@ -10,5 +10,14 @@ Router.route('/').post((req, res) => {
         console.log(err)
     })
 })
+.get((req, res) => {
+    User.findById(req.query.id)
+    .then(user => {
+        res.json(user)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
 
 module.exports = Router

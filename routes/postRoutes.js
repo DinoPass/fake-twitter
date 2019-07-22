@@ -3,10 +3,11 @@ let {Post, User} = require('../models')
 
 Router.route('/posts').post((req, res) => {
     let newPost;
-    Post.create({ message: req.body.message })
+
+    Post.create({ message: req.body.message, userId: req.body.userId })
     .then(post => {
         newPost = post
-        return User.findByIdAndUpdate(req.body.userId, { $addToSet: { posts: post._id } })
+        return User.findByIdAndUpdate(req.body.userId, { $addToSet: { posts: post._id } }, {new: true})
     })
     .then(user => {
         res.json(newPost)
