@@ -61,7 +61,8 @@ mongoose.connect('mongodb://localhost:27017/twitterDb', mongooseOptions)
 })
 app.use(Router, postRouter, likeRoutes, followRoutes, retweetsRoutes)
 app.get(/^\/(?!login|signup|user|post|likes|retweet).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+    console.log('index is running', path.resolve(__dirname, 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
 })
 app.post('/signup', (req, res) => {
     User.create(req.body)
@@ -72,7 +73,7 @@ app.post('/signup', (req, res) => {
         res.status(422).send({message: 'Error occured during sign up'})
     })
 })
-// passport local strategy hanles login part
+// passport local strategy handles login part
 app.post('/login', passport.authenticate('local'), (req, res) => {
     res.cookie('user', req.user.id, {maxAge: 900000})
     res.send(req.user)

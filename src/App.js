@@ -31,9 +31,7 @@ class App extends React.Component {
             console.log(err)
         })
     }
-//    static getDerivedStateFromProps(props, state) {
-//         console.log('componentDidUpdate: ', props)
-//     }
+
     componentDidMount() {
         console.log('componentDidMount', document.cookie.slice(5))
         this.getUser(document.cookie.slice(5))

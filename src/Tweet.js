@@ -6,8 +6,6 @@ class Tweet extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: [],
-            user: {},
             message: ''
         }
         this.handleChange = this.handleChange.bind(this)
