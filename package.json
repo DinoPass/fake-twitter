@@ -35,7 +35,7 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "nodemon": "^2.0.20",
-    "webpack": "^4.35.0",
+    "webpack": "^5.105.4",
     "webpack-cli": "^3.3.12"
   }
 }
